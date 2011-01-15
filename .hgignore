@@ -18,3 +18,9 @@ src/lgefuse
 src/tsthash
 src/lstmmdb
 include/stamp-h1
+build-stamp
+configure-stamp
+debian/fuse-lgefs.*
+debian/fuse-lgefs/
+debian/tmp
+debian/files

@@ -1,0 +1,15 @@
+Source: fuse-lgefs
+Priority: optional
+Section: misc
+Maintainer: Jiri Gabriel <tykefcz@gmail.com>
+Build-Depends: debhelper (>= 5), libfuse-dev, 
+Homepage: http://code.google.com/p/fuse-lgefs/
+Vcs-Browser: http://code.google.com/p/fuse-lgefs/source/browse/
+Standards-Version: 1.0
+
+Package: fuse-lgefs
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}, fuse-utils
+Description: Filesystem in USEr space module for access (read-only) 
+ data from LG HDD Recorder disk.
+ Tested on LG RHT-388H (250GB)

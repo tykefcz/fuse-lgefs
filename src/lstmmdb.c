@@ -27,13 +27,13 @@ void listfile(char *name) {
   mmdb_file fi;
   mmdb_tail tail;
   unsigned char buf[128],nmb[128];
-  int zaznamu,z,i,j;
+  int zaznamu,z,i,j,rv;
   time_t tt;
   struct tm tm;
   
   f=fopen(name,"r");
   if (f==NULL) return;
-  fread(&hdr,sizeof(hdr),1,f);
+  rv=fread(&hdr,sizeof(hdr),1,f);
   zaznamu=be32_to_cpu(hdr.records);
   for (z=0;z<zaznamu;z++) {
     if (fread(&zaz,sizeof(zaz),1,f) != 1) break;
@@ -43,9 +43,9 @@ void listfile(char *name) {
     tt=lge_datetime(be32_to_cpu(zaz.rec_date),be32_to_cpu(zaz.rec_time));
     localtime_r(&tt,&tm);
     for (i=0;i<j;i++) {
-      fread(&fi,sizeof(fi),1,f);
+      rv=fread(&fi,sizeof(fi),1,f);
     }
-    fread(&tail,sizeof(tail),1,f);
+    rv=fread(&tail,sizeof(tail),1,f);
     lge_be16_2_utf8(&(tail.name[0]),(char *)nmb,sizeof(tail.name) / sizeof(__be16),0);
     printf("%04d%02d%02d_%02d%02d_%03d%s_%d_%s = %s\n",
            tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,tm.tm_hour,tm.tm_min,

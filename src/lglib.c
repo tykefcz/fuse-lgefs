@@ -1,6 +1,9 @@
 #include "config.h"
 #include <asm/byteorder.h> 
 #include <stdlib.h>
+#ifndef __USE_LARGEFILE64
+#define __USE_LARGEFILE64	1
+#endif
 #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
@@ -426,7 +429,7 @@ int lge_readdir(LGDIR *dirp,struct lgedirent *de) {
   lge_dir_entry *le;
   int pos,k;
   sb_t *sb;
-  char segm[5];
+  char segm[6];
   
   if (dirp==NULL) return -EIO;
   if (dirp->dir_pos < -1) return -EIO;
