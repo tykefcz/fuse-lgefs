@@ -1,4 +1,5 @@
 #include "config.h"
+#include <asm/byteorder.h> 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

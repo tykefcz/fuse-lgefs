@@ -1,0 +1,20 @@
+# Ignore file
+
+syntax: glob
+
+*.o
+*.obj
+*.exe
+*~
+src/.deps
+autom4te.cache/
+configure
+config.*
+Makefile
+Makefile.in
+src/Makefile
+src/Makefile.in
+src/lgefuse
+src/tsthash
+src/lstmmdb
+include/stamp-h1

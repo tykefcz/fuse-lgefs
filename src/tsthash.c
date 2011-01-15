@@ -1,5 +1,6 @@
 #include <malloc.h>
 #include <string.h>
+#include <asm/byteorder.h> 
 #include <stdlib.h>
 #include <stdio.h>
 #include "hashtab.h"
@@ -21,13 +22,13 @@ void test() {
   }
   ht_addconst(h,"12","konstanta");
   printf("allocated %d table size=%d\n",h->htlen,h->size);
-  for(i=0;(n=ht_get(i))!=NULL;i++) {
+  for(i=0;(n=ht_get(h,i))!=NULL;i++) {
     printf("%10x %s = %s\n",n->hash,n->val,(char *)n->data);
   }
   ht_del(h,"62"); ht_del(h,tst); ht_del(h,"0"); ht_del(h,"12");
   ht_del(h,"mana");
   printf("odmazano %d table size=%d\n",h->htlen,h->size);
-  for(i=0;(n=ht_get(i))!=NULL;i++) {
+  for(i=0;(n=ht_get(h,i))!=NULL;i++) {
     printf("%10x %s = %s\n",n->hash,n->val,(char *)n->data);
   }
   h=ht_free(h);

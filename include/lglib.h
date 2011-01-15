@@ -88,7 +88,7 @@ LGEDRV           *lge_close(LGEDRV *drv);
 
 LGFILE           *lge_fopen(LGEDRV *d,const char *name);
 int              lge_fread(void *buf,int size, LGFILE *f);
-off64_t          lge_fseek(LGFILE *f,off64_t o,int mode);
+off64_t        lge_fseek(LGFILE *f,off64_t o,int mode);
 LGFILE           *lge_fclose(LGFILE *f);
 
 #endif
