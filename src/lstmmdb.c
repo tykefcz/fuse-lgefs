@@ -57,6 +57,7 @@ void listfile(char *name) {
 }
 
 int main(int argc, char *argv[]) {
-  listfile("MME.DB");
+  if (argc > 1) listfile(argv[1]); 
+  else listfile("MME.DB");
   return 0;
 }

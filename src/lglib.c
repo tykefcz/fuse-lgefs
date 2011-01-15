@@ -492,7 +492,12 @@ int lge_readdir(LGDIR *dirp,struct lgedirent *de) {
         snprintf(de->name,sizeof(de->name),"%s%s%s",
                  de->d_mm->trname,segm,de->name[k+1]=='s'?".mpg":".idx");
         de->d_ctime = de->d_mm->ctime;
+      } 
+#ifdef DEBUG
+      else {
+        fprintf(stderr,"file %s not found in mmdb\n",de->name);
       }
+#endif
     }
   }
   return 0; 

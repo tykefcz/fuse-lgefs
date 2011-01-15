@@ -49,9 +49,12 @@ static int ht_intfind(ht_tab *ht,const char *s) {
     if (h>ht->nodes[i].hash) i+=j; 
     else if (h<ht->nodes[i].hash) i-=j;
     else break;
+    if (i<0) i=0;
+    if (i>=ht->size) i=ht->size-1;
   }
   if(i>=ht->size) i=ht->size-1;
   while((i>0) && (h<=ht->nodes[i].hash)) i--;
+  if (i<0) i=0;
   for(;i<ht->size && h>=ht->nodes[i].hash;i++) {
     if (h==ht->nodes[i].hash) {
       if (strcmp(s,ht->nodes[i].val)==0) {
@@ -82,7 +85,7 @@ static void ht_grow(ht_tab *ht) {
 
 static int ht_newz(ht_tab *ht, const char *s, void *d, int dlen) {
   HASHTYPE h;
-  int i;
+  int i,sl2,sl,dl;
   if (ht==NULL || s==NULL) return -1;
   h=ht->hf(s);
   if (ht->size >= ht->htlen) ht_grow(ht);
@@ -100,9 +103,13 @@ static int ht_newz(ht_tab *ht, const char *s, void *d, int dlen) {
     ht->nodes[i].data=d;
   } else if (dlen >= 0) {
     ht->nodes[i].release=0;
-    ht->nodes[i].val=malloc(strlen(s) + 1 + dlen);
-    memcpy(ht->nodes[i].val,s,strlen(s));
-    ht->nodes[i].data=&(ht->nodes[i].val[strlen(s)+1]);
+    sl = sl2 = strlen(s);
+    dl = dlen + 4;
+    sl = sl + 4 - ((sl + 4) % 4);
+    dl -= dl % 4;
+    ht->nodes[i].val=malloc(sl + dl);
+    memcpy(ht->nodes[i].val,s,sl2 + 1);
+    ht->nodes[i].data=&(ht->nodes[i].val[sl]);
     memcpy(ht->nodes[i].data,d,dlen);
   }
   return ht->size++;
