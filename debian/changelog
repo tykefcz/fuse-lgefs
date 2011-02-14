@@ -1,3 +1,11 @@
+fuse-lgefs (1.1) unstable; urgency=low
+
+  [ Jiri Gabriel ]
+  * Bug on recognization of filesystem fixed. Tested by Allan Jardine.
+  * tested on disk from RHT497H
+
+ -- Jiri Gabriel <tykefcz@gmail.com>  Sat, 14 Feb 2011 22:08:03 +0100
+
 fuse-lgefs (1.0) unstable; urgency=low
 
   [ Jiri Gabriel ]
