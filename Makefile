@@ -35,7 +35,8 @@ subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(top_srcdir)/configure \
 	$(top_srcdir)/include/config-h.in AUTHORS COPYING ChangeLog \
-	INSTALL NEWS depcomp install-sh missing
+	INSTALL NEWS config.guess config.sub depcomp install-sh \
+	missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -135,10 +136,10 @@ OBJEXT = o
 PACKAGE = fuse-lgefs
 PACKAGE_BUGREPORT = tykefcz@gmail.com
 PACKAGE_NAME = fuse-lgefs
-PACKAGE_STRING = fuse-lgefs 1.0
+PACKAGE_STRING = fuse-lgefs 1.1
 PACKAGE_TARNAME = fuse-lgefs
 PACKAGE_URL = 
-PACKAGE_VERSION = 1.0
+PACKAGE_VERSION = 1.1
 PATH_SEPARATOR = :
 PKG_CONFIG = /usr/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
@@ -146,7 +147,7 @@ PKG_CONFIG_PATH =
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = 
-VERSION = 1.0
+VERSION = 1.1
 abs_builddir = /home/gabriel/projects/lgefs/fuse-lgefs-1.0
 abs_srcdir = /home/gabriel/projects/lgefs/fuse-lgefs-1.0
 abs_top_builddir = /home/gabriel/projects/lgefs/fuse-lgefs-1.0

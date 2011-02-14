@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.67])
-AC_INIT(fuse-lgefs, 1.0, tykefcz@gmail.com)
+AC_INIT(fuse-lgefs, 1.1, tykefcz@gmail.com)
 AC_CONFIG_SRCDIR([src/lgefuse.c])
 AC_CONFIG_HEADERS([include/config.h:include/config-h.in])
 AC_CONFIG_FILES([Makefile
