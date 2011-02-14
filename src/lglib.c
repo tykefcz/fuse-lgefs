@@ -239,7 +239,7 @@ LGEDRV *lge_open(const char *devname,int readcache) {
   off1=0;
   p0size=0;
   if (memcmp(bs.system_id,"LGEINC  ",8) != 0) {
-    if (name[0x1FE] == 0x55 && name[0x1C2]==0x0C) {
+    if (name[0x1FE] == 0x55 && name[0x1C1]==0x0B) {
       __le32 *l32;
       l32=(__le32 *)&(name[0x1C2]);
       part=le32_to_cpu(l32[1]);
